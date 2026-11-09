@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deal Store</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#0f1420;color:#fff}
+header{padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
+#logo{width:48px;height:48px;border-radius:12px;background:#222;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#logo img{width:100%;height:100%;object-fit:cover}
+.live{background:#00c853;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:bold}
+#banner{height:170px;background:#1c2333;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:12px;margin:0 16px;text-align:center}
+#banner img{width:100%;height:100%;object-fit:cover}
+.search{margin:12px 16px;background:#1a2233;padding:10px 14px;border-radius:20px;color:#888;font-size:13px}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:0 16px 10px}
+.filters button{white-space:nowrap;padding:7px 14px;border-radius:20px;border:1px solid #333;background:#1a2233;color:#fff;cursor:pointer}
+.filters button.active{background:#fff;color:#000}
+main{padding:0 16px 16px}
+h3.sec{margin:14px 0 10px;font-size:16px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card-game{background:#1a2233;border-radius:12px;overflow:hidden;padding-bottom:10px}
+.card-game .top{height:90px;display:flex;align-items:center;justify-content:center;font-size:28px;flex-direction:column;gap:4px}
+.card-game .inner{padding:8px 10px}
+.badge{display:inline-block;background:#ff3d00;color:#fff;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:bold}
+.card-game b{font-size:13px;display:block;margin:6px 0 2px}
+.card-game small{color:#aaa;font-size:11px}
+.card{background:#1a2233;padding:16px;border-radius:12px;margin:16px 0}
+.card h3{margin-bottom:8px}
+label{font-size:13px;color:#ccc}
+input,textarea,select{width:100%;padding:10px;margin:6px 0 10px;border-radius:8px;border:1px solid #333;background:#0f1420;color:#fff}
+button{padding:10px 16px;border:0;border-radius:8px;background:#ffcc00;font-weight:bold;cursor:pointer}
+.btn-green{background:#00c853;color:#fff;width:100%;padding:12px;font-size:15px}
+.btn-red{background:#ff1744;color:#fff;padding:6px 10px;font-size:12px}
+.btn-small{background:#333;color:#fff;padding:6px 10px;font-size:12px}
+.toggle-row{display:flex;justify-content:space-between;align-items:center;background:#0f1420;padding:10px 12px;border-radius:8px;margin:6px 0}
+.toggle-row input{width:20px;height:20px;margin:0}
+footer{background:#0a0e18;padding:28px 16px 16px;margin-top:10px}
+.foot-top{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot-left{max-width:380px}
+.foot-left h2{font-size:26px;margin-bottom:8px}
+.foot-left p{color:#aaa;font-size:14px;line-height:1.6}
+.foot-right{min-width:220px}
+.foot-right p{color:#aaa;font-size:13px;line-height:1.6}
+.cs-btn{margin-top:10px;background:#fff;color:#000;padding:10px 16px;border-radius:20px}
+.social{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.social span{background:#1a2233;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.pay{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.pay span{background:#fff;color:#000;padding:7px 10px;border-radius:6px;font-size:12px;font-weight:bold}
+.contact-box{margin-top:20px;background:#1a2233;padding:14px;border-radius:10px}
+.contact-box p{color:#ccc;font-size:14px;line-height:1.8}
+.bottom{border-top:1px solid #222;margin-top:20px;padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#888;font-size:12px}
+.game-edit{background:#0f1420;padding:12px;border-radius:10px;margin:10px 0;border:1px solid #333}
+.game-edit b{color:#ffcc00;font-size:13px}
+.row2{display:flex;gap:8px}
+.row2 input{flex:1}
+</style>
+</head>
+<body>
+
+<header>
+<div style="display:flex;gap:10px;align-items:center"><div id="logo"><span>DS</span></div><div><h2>Deal Store</h2><small style="color:#aaa">Your Recharge Store</small></div></div>
+<span class="live">● LIVE</span>
+</header>
+
+<div id="banner"><span>🔥 Trending Topups<br>Fast • Secure • Instant</span></div>
+<div class="search">🔍 Search... PUBG, BGMI, Free Fire...</div>
+<div class="filters" id="filterBar"></div>
+
+<main>
+<h3 class="sec">🔥 Trending Me Hai</h3>
+<div class="grid" id="trendingGrid"></div>
+<h3 class="sec">🎮 Sab Games</h3>
+<div class="grid" id="allGrid"></div>
+
+<div class="card">
+<h3>⚙️ Store Setting</h3>
+<label>Banner Photo</label><input type="file" id="bannerInput" accept="image/*">
+<label>Icon / Logo Photo</label><input type="file" id="logoInput" accept="image/*">
+<label>Official Contact</label><input type="text" id="contactInput" placeholder="0300-1234567">
+<label>Address</label><textarea id="addressInput" placeholder="Lahore, Pakistan"></textarea>
+
+<h4 style="margin:12px 0 6px">Payment Channels - ON / OFF</h4>
+<div class="toggle-row"><span>💳 Card</span><input type="checkbox" id="payCard" checked></div>
+<div class="toggle-row"><span>🍎 Apple Pay</span><input type="checkbox" id="payApple" checked></div>
+<div class="toggle-row"><span>🪙 USDT</span><input type="checkbox" id="payUsdt" checked></div>
+<div class="toggle-row"><span>₿ Bitcoin</span><input type="checkbox" id="payBtc" checked></div>
+
+<h4 style="margin:16px 0 6px">🔘 Filter Buttons</h4>
+<input type="text" id="filterInput" value="All, Trending, Battle Royale, Diamonds, Coins">
+
+<!-- FULL GAME CONTROL -->
+<h4 style="margin:16px 0 6px">🎮 Games Control - Add / Change / Delete</h4>
+<p style="color:#aaa;font-size:12px">Yahan se tu khud sab kar sakta hai. Code ko haath lagane ki zarurat nahi.</p>
+
+<!-- ADD NEW GAME -->
+<div style="background:#0f1420;padding:12px;border-radius:10px;border:2px dashed #ffcc00;margin:12px 0">
+<b style="color:#ffcc00">➕ Naya Box / Game Add Karo</b>
+<input type="text" id="newName" placeholder="Naya Game Ka Naam - e.g. Free Fire MAX">
+<div class="row2"><input type="text" id="newCat" placeholder="Category - Diamonds / Coins"><input type="text" id="newPrice" placeholder="Price - From 25K"></div>
+<div class="row2"><input type="text" id="newBadge" placeholder="Badge - HOT / TRENDING / Khali"><input type="text" id="newIcon" placeholder="Emoji - 💎 🪙 🎮"></div>
+<div class="row2"><select id="newColor"><option value="#ff5722">Orange Color</option><option value="#ff9800">Light Orange</option><option value="#2196f3">Blue</option><option value="#00bcd4">Cyan</option><option value="#e91e63">Pink</option><option value="#4caf50">Green</option><option value="#9c27b0">Purple</option><option value="#ff4081">Dark Pink</option></select></div>
+<button class="btn-green" onclick="addGame()">➕ ADD NEW GAME</button>
+</div>
+
+<!-- EXISTING GAMES EDIT -->
+<div id="gamesEditor"></div>
+
+<button onclick="saveAll()" style="width:100%;margin-top:10px">💾 SAVE ALL</button>
+<p id="savedMsg" style="color:#4caf50;margin-top:8px;display:none">✅ Saved! Sab kuch save ho gaya.</p>
+</div>
+</main>
+
+<footer>
+<div class="foot-top">
+<div class="foot-left">
+<h2>Deal Store</h2>
+<p>Deal Store is your recharge store. Pay Safe, fast and fun at Deal Store.</p>
+<p style="margin-top:20px;color:#fff;font-weight:bold">Follow us on</p>
+<div class="social"><span>✉️</span><span>💬</span><span>𝕏</span><span>🟢</span><span>🔴</span><span>▶️</span><span>🎵</span><span>📸</span><span>f</span></div>
+<p style="color:#fff;font-weight:bold">Deal Store Supports Payment Channels</p>
+<div class="pay"><span id="payCardShow">VISA</span><span id="payCardShow2">Mastercard</span><span id="payAppleShow">Apple Pay</span><span id="payUsdtShow">USDT</span><span id="payBtcShow">Bitcoin</span></div>
+</div>
+<div class="foot-right"><h4>Contact us</h4><p>If you need any help, please click on "Customer Service" to contact us</p><button class="cs-btn">✉️ Customer Service</button></div>
+</div>
+<div class="contact-box">
+<p>📞 <b>Official Contact:</b> <span id="showContact">Not set yet</span></p>
+<p>📍 <b>Address:</b> <span id="showAddress">Not set yet</span></p>
+<p>💻 <b>Developed By: Binrao</b></p>
+</div>
+<div class="bottom"><span>Terms of Service | Privacy Policy | Cookie Policy</span><span>Copyright © Deal Store. All rights reserved.</span></div>
+</footer>
+
+<script>
+let defaultGames=[
+{name:"PUBG Mobile UC",cat:"Battle Royale",price:"From 25K",badge:"HOT",color:"#ff5722",icon:"🪙"},
+{name:"BGMI UC",cat:"Battle Royale",price:"From 25K",badge:"HOT",color:"#ff9800",icon:"🪙"},
+{name:"Free Fire Diamonds",cat:"Diamonds",price:"From 25K",badge:"HOT",color:"#ff5722",icon:"💎"},
+{name:"Free Fire MAX Diamonds",cat:"Diamonds",price:"From 25K",badge:"TRENDING",color:"#ff4081",icon:"💎"},
+{name:"COD Mobile CP",cat:"Battle Royale",price:"From 25K",badge:"TRENDING",color:"#2196f3",icon:"🪖"},
+{name:"Mobile Legends Diamonds",cat:"Diamonds",price:"From 25K",badge:"TRENDING",color:"#00bcd4",icon:"💎"},
+{name:"Clash of Clans Gold Pass",cat:"Coins",price:"From 25K",badge:"TRENDING",color:"#ff9800",icon:"🏆"},
+{name:"TikTok Coins",cat:"Coins",price:"From 25K",badge:"HOT",color:"#e91e63",icon:"🪙"},
+{name:"Valorant Points",cat:"Coins",price:"From 25K",badge:"TRENDING",color:"#4caf50",icon:"🔴"},
+{name:"Fortnite V-Bucks",cat:"Coins",price:"From 25K",badge:"",color:"#9c27b0",icon:"🟦"},
+{name:"Clash Royale Gems",cat:"Diamonds",price:"From 25K",badge:"",color:"#4caf50",icon:"💜"},
+{name:"Brawl Stars Gems",cat:"Diamonds",price:"From 25K",badge:"",color:"#9c27b0",icon:"💎"},
+{name:"Genshin Genesis Crystals",cat:"Coins",price:"From 25K",badge:"",color:"#2196f3",icon:"✨"},
+{name:"Roblox Robux",cat:"Coins",price:"From 25K",badge:"",color:"#ff9800",icon:"🧱"}
+];
+let games=JSON.parse(localStorage.getItem('deal_games')||'null')||defaultGames;
+let filters=JSON.parse(localStorage.getItem('deal_filters')||'null')||["All","Trending","Battle Royale","Diamonds","Coins"];
+let activeFilter="All";
+
+function renderFilters(){
+  const bar=document.getElementById('filterBar'); bar.innerHTML='';
+  filters.forEach(f=>{
+    const b=document.createElement('button'); b.textContent=f; if(f===activeFilter) b.classList.add('active');
+    b.onclick=()=>{activeFilter=f;renderAll();}; bar.appendChild(b);
+  });
+  document.getElementById('filterInput').value=filters.join(', ');
+}
+function gameCard(g){
+  return `<div class="card-game"><div class="top" style="background:${g.color}"><span style="font-size:30px">${g.icon}</span><small style="font-size:10px;background:rgba(0,0,0,.3);padding:2px 6px;border-radius:10px">${g.cat}</small></div><div class="inner">${g.badge?`<span class="badge">${g.badge}</span>`:''}<b>${g.name}</b><small>${g.cat} • sold</small><div style="font-size:12px;margin-top:4px">${g.price}</div></div></div>`;
+}
+function renderAll(){
+  renderFilters();
+  let list=games;
+  if(activeFilter!=="All" && activeFilter!=="Trending") list=games.filter(g=>g.cat===activeFilter);
+  if(activeFilter==="Trending") list=games.filter(g=>g.badge==="HOT"||g.badge==="TRENDING");
+  document.getElementById('trendingGrid').innerHTML=games.slice(0,8).map(gameCard).join('');
+  document.getElementById('allGrid').innerHTML=list.map(gameCard).join('');
+  // Editor - Har game ke liye Edit + Delete
+  const ed=document.getElementById('gamesEditor');
+  ed.innerHTML=games.map((g,i)=>`
+  <div class="game-edit">
+    <div style="display:flex;justify-content:space-between;align-items:center"><b>Box ${i+1} - ${g.name}</b><button class="btn-red" onclick="deleteGame(${i})">🗑️ Delete</button></div>
+    <input type="text" value="${g.name}" data-name="${i}" placeholder="Game Name - e.g. PUBG Mobile UC">
+    <div class="row2"><input type="text" value="${g.cat}" data-cat="${i}" placeholder="Category"><input type="text" value="${g.price}" data-price="${i}" placeholder="Price"></div>
+    <div class="row2"><input type="text" value="${g.badge}" data-badge="${i}" placeholder="Badge HOT / TRENDING"><input type="text" value="${g.icon}" data-icon="${i}" placeholder="Emoji"></div>
+    <select data-color="${i}"><option value="#ff5722" ${g.color=="#ff5722"?"selected":""}>Orange</option><option value="#ff9800" ${g.color=="#ff9800"?"selected":""}>Light Orange</option><option value="#2196f3" ${g.color=="#2196f3"?"selected":""}>Blue</option><option value="#00bcd4" ${g.color=="#00bcd4"?"selected":""}>Cyan</option><option value="#e91e63" ${g.color=="#e91e63"?"selected":""}>Pink</option><option value="#4caf50" ${g.color=="#4caf50"?"selected":""}>Green</option><option value="#9c27b0" ${g.color=="#9c27b0"?"selected":""}>Purple</option><option value="#ff4081" ${g.color=="#ff4081"?"selected":""}>Dark Pink</option></select>
+  </div>`).join('');
+}
+function collectGamesFromEditor(){
+  document.querySelectorAll('[data-name]').forEach(el=>{ games[+el.dataset.name].name=el.value; });
+  document.querySelectorAll('[data-cat]').forEach(el=>{ games[+el.dataset.cat].cat=el.value; });
+  document.querySelectorAll('[data-price]').forEach(el=>{ games[+el.dataset.price].price=el.value; });
+  document.querySelectorAll('[data-badge]').forEach(el=>{ games[+el.dataset.badge].badge=el.value; });
+  document.querySelectorAll('[data-icon]').forEach(el=>{ games[+el.dataset.icon].icon=el.value; });
+  document.querySelectorAll('[data-color]').forEach(el=>{ games[+el.dataset.color].color=el.value; });
+}
+function addGame(){
+  const name=document.getElementById('newName').value.trim();
+  if(!name){ alert('Pehle Naye Game Ka Naam Likho!'); return; }
+  collectGamesFromEditor();
+  games.push({
+    name:name,
+    cat:document.getElementById('newCat').value||"Coins",
+    price:document.getElementById('newPrice').value||"From 25K",
+    badge:document.getElementById('newBadge').value||"HOT",
+    icon:document.getElementById('newIcon').value||"🎮",
+    color:document.getElementById('newColor').value||"#ff5722"
+  });
+  localStorage.setItem('deal_games',JSON.stringify(games));
+  document.getElementById('newName').value=''; document.getElementById('newCat').value=''; document.getElementById('newPrice').value=''; document.getElementById('newBadge').value=''; document.getElementById('newIcon').value='';
+  renderAll(); alert('✅ Naya Game Add Ho Gaya!');
+}
+function deleteGame(i){
+  if(!confirm('Kya "'+games[i].name+'" ko delete karna hai?')) return;
+  collectGamesFromEditor();
+  games.splice(i,1);
+  localStorage.setItem('deal_games',JSON.stringify(games));
+  renderAll();
+}
+function updatePay(){
+  const c=document.getElementById('payCard').checked, a=document.getElementById('payApple').checked, u=document.getElementById('payUsdt').checked, b=document.getElementById('payBtc').checked;
+  document.getElementById('payCardShow').style.display=c?'':'none';
+  document.getElementById('payCardShow2').style.display=c?'':'none';
+  document.getElementById('payAppleShow').style.display=a?'':'none';
+  document.getElementById('payUsdtShow').style.display=u?'':'none';
+  document.getElementById('payBtcShow').style.display=b?'':'none';
+}
+function readFile(input,key,cb){ if(!input.files[0]) return cb(); const r=new FileReader(); r.onload=e=>{localStorage.setItem(key,e.target.result);cb();}; r.readAsDataURL(input.files[0]); }
+function saveAll(){
+  localStorage.setItem('deal_contact',document.getElementById('contactInput').value);
+  localStorage.setItem('deal_address',document.getElementById('addressInput').value);
+  localStorage.setItem('deal_payCard',document.getElementById('payCard').checked?'1':'0');
+  localStorage.setItem('deal_payApple',document.getElementById('payApple').checked?'1':'0');
+  localStorage.setItem('deal_payUsdt',document.getElementById('payUsdt').checked?'1':'0');
+  localStorage.setItem('deal_payBtc',document.getElementById('payBtc').checked?'1':'0');
+  const f=document.getElementById('filterInput').value.split(',').map(s=>s.trim()).filter(Boolean);
+  if(f.length){ filters=f; localStorage.setItem('deal_filters',JSON.stringify(filters)); }
+  collectGamesFromEditor();
+  localStorage.setItem('deal_games',JSON.stringify(games));
+  readFile(document.getElementById('bannerInput'),'deal_banner',()=>{
+    readFile(document.getElementById('logoInput'),'deal_logo',()=>{
+      loadAll(); renderAll(); document.getElementById('savedMsg').style.display='block';
+    });
+  });
+}
+function loadAll(){
+  const b=localStorage.getItem('deal_banner'), l=localStorage.getItem('deal_logo'), c=localStorage.getItem('deal_contact'), a=localStorage.getItem('deal_address');
+  if(b) document.getElementById('banner').innerHTML='<img src="'+b+'">';
+  if(l) document.getElementById('logo').innerHTML='<img src="'+l+'">';
+  if(c){document.getElementById('showContact').textContent=c;document.getElementById('contactInput').value=c;}
+  if(a){document.getElementById('showAddress').textContent=a;document.getElementById('addressInput').value=a;}
+  const pc=localStorage.getItem('deal_payCard'); if(pc!==null) document.getElementById('payCard').checked=(pc==='1');
+  const pa=localStorage.getItem('deal_payApple'); if(pa!==null) document.getElementById('payApple').checked=(pa==='1');
+  const pu=localStorage.getItem('deal_payUsdt'); if(pu!==null) document.getElementById('payUsdt').checked=(pu==='1');
+  const pb=localStorage.getItem('deal_payBtc'); if(pb!==null) document.getElementById('payBtc').checked=(pb==='1');
+  updatePay();
+}
+loadAll(); renderAll();
+</script>
+</body>
+</html>
