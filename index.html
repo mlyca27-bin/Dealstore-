@@ -8,7 +8,7 @@
 :root{
 --bg:radial-gradient(1200px 600px at 10% 0%, #3b0f3a 0%, transparent 60%), radial-gradient(1000px 500px at 100% 20%, #ff5e3a 0%, transparent 55%), radial-gradient(800px 600px at 50% 100%, #ff8a5c 0%, transparent 60%), #0a050a;
 --card:rgba(255,255,255,.08); --card-border:rgba(255,255,255,.18);
---accent:#FFC9A3; --accent2:#FF5E8A; --accent3:#A855F7;
+--accent:#FFC9A3; --accent2:#FF5E8A;
 --text:#fff; --muted:#d1c7d1;
 --banner:linear-gradient(135deg,#FF5E8A,#A855F7,#FF8A5C,#FFC9A3);
 --btn-bg:linear-gradient(135deg,#FF5E8A,#A855F7); --btn-text:#fff;
@@ -16,38 +16,41 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
 body{background:var(--bg);background-attachment:fixed;color:var(--text);min-height:100vh}
-header{padding:14px 16px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.06);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.15);position:sticky;top:0;z-index:50}
-#logo{width:50px;height:50px;border-radius:16px;background:var(--banner);display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;user-select:none;color:#fff;font-weight:900;box-shadow:var(--glow);border:1px solid rgba(255,255,255,.3)}
+header{padding:14px 16px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.06);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.15);position:sticky;top:0;z-index:50}
+#logo{width:50px;height:50px;border-radius:16px;background:var(--banner);display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;user-select:none;color:#fff;font-weight:900;box-shadow:var(--glow)}
 #logo img{width:100%;height:100%;object-fit:cover}
 #storeTitle{cursor:pointer;user-select:none}
 #storeTitle h2{background:var(--banner);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:23px;font-weight:900}
 #storeTitle small{color:var(--muted)}
-.live{background:rgba(0,255,150,.15);color:#00ffa3;border:1px solid rgba(0,255,150,.4);padding:5px 11px;border-radius:20px;font-size:11px;font-weight:bold;backdrop-filter:blur(10px)}
-#banner{height:185px;margin:14px 16px;border-radius:24px;background:var(--banner);display:flex;align-items:center;justify-content:center;overflow:hidden;text-align:center;box-shadow:var(--glow);border:1px solid rgba(255,255,255,.35);position:relative}
-#banner::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.25))}
-#banner img{width:100%;height:100%;object-fit:cover;position:relative;z-index:1}
-#banner span{color:#fff;font-weight:900;font-size:21px;line-height:1.4;text-shadow:0 4px 20px rgba(0,0,0,.5);position:relative;z-index:2}
-.search{margin:0 16px 12px;background:rgba(255,255,255,.08);backdrop-filter:blur(20px);padding:13px 16px;border-radius:20px;color:var(--muted);font-size:13px;border:1px solid rgba(255,255,255,.15);box-shadow:0 8px 30px rgba(0,0,0,.2)}
+.live{background:rgba(0,255,150,.15);color:#00ffa3;border:1px solid rgba(0,255,150,.4);padding:5px 11px;border-radius:20px;font-size:11px;font-weight:bold}
+#banner{height:185px;margin:14px 16px;border-radius:24px;background:var(--banner);display:flex;align-items:center;justify-content:center;overflow:hidden;text-align:center;box-shadow:var(--glow);border:1px solid rgba(255,255,255,.35)}
+#banner img{width:100%;height:100%;object-fit:cover}
+#banner span{color:#fff;font-weight:900;font-size:21px;text-shadow:0 4px 20px rgba(0,0,0,.5)}
+.search{margin:0 16px 12px;background:rgba(255,255,255,.08);backdrop-filter:blur(20px);padding:13px 16px;border-radius:20px;color:var(--muted);font-size:13px;border:1px solid rgba(255,255,255,.15)}
 .filters{display:flex;gap:8px;overflow-x:auto;padding:0 16px 12px;scrollbar-width:none}
-.filters::-webkit-scrollbar{display:none}
-.filters button{white-space:nowrap;padding:9px 16px;border-radius:20px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);backdrop-filter:blur(15px);color:#eee;cursor:pointer}
-.filters button.active{background:var(--btn-bg);color:#fff;font-weight:bold;border-color:transparent;box-shadow:var(--glow)}
+.filters button{white-space:nowrap;padding:9px 16px;border-radius:20px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#eee;cursor:pointer}
+.filters button.active{background:var(--btn-bg);color:#fff;font-weight:bold;box-shadow:var(--glow)}
 main{padding:0 16px 16px}
 h3.sec{margin:16px 0 12px;font-size:17px;background:var(--banner);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:900}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.card-game{background:rgba(255,255,255,.09);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.18);border-radius:20px;overflow:hidden;padding-bottom:10px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
-.card-game .top{height:98px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px}
+.card-game{background:rgba(255,255,255,.09);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.18);border-radius:20px;overflow:hidden;padding-bottom:10px;box-shadow:0 10px 30px rgba(0,0,0,.25);cursor:pointer}
+.card-game .top{height:105px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;overflow:hidden;position:relative}
+.card-game .top img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.card-game .top .overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.55))}
+.card-game .top .emoji{font-size:32px;position:relative;z-index:2}
 .card-game .inner{padding:10px 12px}
-.badge{display:inline-block;background:var(--btn-bg);color:#fff;font-size:10px;padding:3px 9px;border-radius:10px;font-weight:bold;box-shadow:var(--glow)}
+.badge{display:inline-block;background:var(--btn-bg);color:#fff;font-size:10px;padding:3px 9px;border-radius:10px;font-weight:bold}
 .card-game b{font-size:13px;display:block;margin:6px 0 2px}
 .card-game small{color:var(--muted);font-size:11px}
-.card{background:rgba(255,255,255,.07);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.15);padding:18px;border-radius:22px;margin:16px 0;box-shadow:0 15px 40px rgba(0,0,0,.3)}
+.card{background:rgba(255,255,255,.07);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.15);padding:18px;border-radius:22px;margin:16px 0}
 .card h3{margin-bottom:8px;background:var(--banner);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 label{font-size:13px;color:var(--accent)}
-input,textarea,select{width:100%;padding:11px;margin:6px 0 10px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.35);backdrop-filter:blur(10px);color:#fff;outline:none}
+input,textarea,select{width:100%;padding:11px;margin:6px 0 10px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.35);color:#fff;outline:none}
 button{padding:10px 16px;border:0;border-radius:12px;background:var(--btn-bg);color:var(--btn-text);font-weight:bold;cursor:pointer;box-shadow:var(--glow)}
 .btn-green{background:var(--btn-bg);color:#fff;width:100%;padding:12px}
 .btn-red{background:linear-gradient(135deg,#ff1744,#ff5e3a);color:#fff;padding:6px 10px;font-size:12px;box-shadow:none}
+.btn-small{background:#333;color:#fff;padding:6px 10px;font-size:11px;box-shadow:none}
+.btn-ghost{background:rgba(255,255,255,.12);color:#fff;box-shadow:none}
 .toggle-row{display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.3);padding:10px 12px;border-radius:12px;margin:6px 0;border:1px solid rgba(255,255,255,.1)}
 .toggle-row input{width:20px;height:20px;margin:0}
 footer{background:rgba(0,0,0,.5);backdrop-filter:blur(20px);padding:28px 16px 16px;margin-top:10px;border-top:1px solid rgba(255,255,255,.15)}
@@ -58,20 +61,35 @@ footer{background:rgba(0,0,0,.5);backdrop-filter:blur(20px);padding:28px 16px 16
 .foot-right p{color:var(--muted);font-size:13px}
 .cs-btn{margin-top:10px;background:var(--btn-bg);color:#fff;padding:10px 18px;border-radius:20px}
 .social{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
-.social span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(10px)}
+.social span{background:rgba(255,255,255,.1);width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center}
 .pay{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
 .pay span{background:#fff;color:#000;padding:7px 10px;border-radius:8px;font-size:12px;font-weight:bold}
-.contact-box{margin-top:20px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);padding:14px;border-radius:16px;backdrop-filter:blur(15px)}
+.contact-box{margin-top:20px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);padding:14px;border-radius:16px}
 .contact-box p{color:#eee;font-size:14px;line-height:1.8}
 .bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:20px;padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#999;font-size:12px}
 .game-edit{background:rgba(0,0,0,.35);padding:12px;border-radius:14px;margin:10px 0;border:1px solid rgba(255,255,255,.15)}
 .game-edit b{color:var(--accent)}
+.game-edit .preview{width:100%;height:80px;border-radius:10px;overflow:hidden;background:#222;display:flex;align-items:center;justify-content:center;margin:6px 0}
+.game-edit .preview img{width:100%;height:100%;object-fit:cover}
 .row2{display:flex;gap:8px}.row2 input{flex:1}
 .theme-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
-.theme-opt{padding:14px;border-radius:16px;border:2px solid rgba(255,255,255,.25);cursor:pointer;text-align:center;font-size:12px;font-weight:bold;color:#fff;text-shadow:0 1px 6px #000;box-shadow:0 8px 25px rgba(0,0,0,.3)}
-.theme-opt.selected{border-color:#fff;transform:scale(1.04);box-shadow:0 0 0 2px #fff, 0 10px 30px rgba(0,0,0,.4)}
+.theme-opt{padding:14px;border-radius:16px;border:2px solid rgba(255,255,255,.25);cursor:pointer;text-align:center;font-size:12px;font-weight:bold;color:#fff;text-shadow:0 1px 6px #000}
+.theme-opt.selected{border-color:#fff;transform:scale(1.04)}
+.overlayPage{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(10px);z-index:1000;overflow-y:auto;padding:16px}
+.pageBox{max-width:480px;margin:0 auto;background:rgba(255,255,255,.08);backdrop-filter:blur(25px);border:1px solid rgba(255,255,255,.2);border-radius:24px;padding:18px}
+.steps{display:flex;gap:6px;margin-bottom:14px}
+.steps div{flex:1;height:6px;border-radius:10px;background:rgba(255,255,255,.15)}
+.steps div.on{background:var(--btn-bg)}
+.pack-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.pack{padding:12px;border-radius:14px;border:2px solid rgba(255,255,255,.15);background:rgba(0,0,0,.3);cursor:pointer;text-align:center}
+.pack.sel{border-color:#fff;background:var(--btn-bg)}
+.pay-opt{padding:12px;border-radius:14px;border:2px solid rgba(255,255,255,.15);background:rgba(0,0,0,.3);cursor:pointer;margin:8px 0;display:flex;justify-content:space-between;align-items:center}
+.pay-opt.sel{border-color:#fff;background:var(--btn-bg)}
+.order-row{background:rgba(0,0,0,.35);padding:12px;border-radius:12px;margin:8px 0;border:1px solid rgba(255,255,255,.12)}
+.spinner{width:60px;height:60px;border:5px solid rgba(255,255,255,.2);border-top:5px solid #fff;border-radius:50%;animation:spin 0.8s linear infinite;margin:20px auto}
+@keyframes spin{to{transform:rotate(360deg)}}
 #pinOverlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.75);backdrop-filter:blur(10px);z-index:999;align-items:center;justify-content:center;padding:20px}
-#pinBox{background:rgba(255,255,255,.1);backdrop-filter:blur(25px);border:1px solid rgba(255,255,255,.25);padding:24px;border-radius:22px;width:100%;max-width:320px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+#pinBox{background:rgba(255,255,255,.1);backdrop-filter:blur(25px);border:1px solid rgba(255,255,255,.25);padding:24px;border-radius:22px;width:100%;max-width:320px;text-align:center}
 #pinBox h3{background:var(--banner);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 #pinInput{text-align:center;font-size:22px;letter-spacing:8px}
 </style>
@@ -88,9 +106,12 @@ footer{background:rgba(0,0,0,.5);backdrop-filter:blur(20px);padding:28px 16px 16
 <h3 class="sec">🎮 Sab Games</h3><div class="grid" id="allGrid"></div>
 <div class="card" id="settingsCard" style="display:none">
 <div style="display:flex;justify-content:space-between;align-items:center"><h3>⚙️ Store Setting - Admin Only</h3><button onclick="lockSettings()" style="background:#ff1744;color:#fff;padding:6px 12px;box-shadow:none">🔒 LOCK</button></div>
-<p style="color:#4caf50;font-size:12px">✅ PIN Sahi Hai - 2 Din Baad Bhi Same Rahega</p>
-<h4 style="margin:12px 0 6px">✨ Premium Themes - 20 - Simple Color Nahi, Glass + Gradient + Glow</h4>
-<p style="color:#aaa;font-size:12px">Photo jaisa - Har Theme me 3-4 color ka Gradient + Glass + Glow hai. Koi bhi dabao, phir SAVE dabao.</p>
+<p style="color:#4caf50;font-size:12px">✅ PIN Sahi Hai</p>
+<h4 style="margin:14px 0 6px">📦 Orders - Success / Pending / Failed Setting</h4>
+<p style="color:#aaa;font-size:12px">Yahan se har Order ka Status badal sakte ho. Customer ko Result Page pe wahi dikhega. Default: Pending</p>
+<div id="ordersList"><p style="color:#aaa;font-size:12px">Abhi koi Order nahi hai.</p></div>
+<button onclick="clearOrders()" style="background:#333;color:#fff;box-shadow:none;margin-top:6px">🗑️ Sab Orders Clear</button>
+<h4 style="margin:16px 0 6px">✨ Premium Themes - 20 - Glass + Gradient + Glow</h4>
 <div class="theme-grid" id="themeGrid"></div>
 <label>Banner Photo</label><input type="file" id="bannerInput" accept="image/*">
 <label>Icon / Logo Photo</label><input type="file" id="logoInput" accept="image/*">
@@ -102,12 +123,16 @@ footer{background:rgba(0,0,0,.5);backdrop-filter:blur(20px);padding:28px 16px 16
 <div class="toggle-row"><span>🪙 USDT</span><input type="checkbox" id="payUsdt" checked></div>
 <div class="toggle-row"><span>₿ Bitcoin</span><input type="checkbox" id="payBtc" checked></div>
 <h4 style="margin:16px 0 6px">🔘 Filter Buttons</h4><input type="text" id="filterInput" value="All, Trending, Battle Royale, Diamonds, Coins">
-<h4 style="margin:16px 0 6px">🎮 Games Control - Add / Change / Delete</h4>
+<h4 style="margin:16px 0 6px">🎮 Games Control - Photo + Username Field + Packs</h4>
+<p style="color:#aaa;font-size:12px">Har Game ka apna Username Label set karo - Jaise PUBG ke liye "PUBG ID", Free Fire ke liye "Free Fire ID". Packs bhi yahan se likho.</p>
 <div style="background:rgba(0,0,0,.4);padding:12px;border-radius:14px;border:2px dashed var(--accent);margin:12px 0">
-<b style="color:var(--accent)">➕ Naya Box / Game Add Karo</b>
-<input type="text" id="newName" placeholder="Naya Game Ka Naam">
+<b style="color:var(--accent)">➕ Naya Game Add Karo</b>
+<input type="text" id="newName" placeholder="Naya Game Ka Naam - Jaise PUBG 60 UC">
 <div class="row2"><input type="text" id="newCat" placeholder="Category"><input type="text" id="newPrice" placeholder="Price - From 25K"></div>
-<div class="row2"><input type="text" id="newBadge" placeholder="Badge - HOT / TRENDING"><input type="text" id="newIcon" placeholder="Emoji - 💎 🪙"></div>
+<div class="row2"><input type="text" id="newBadge" placeholder="Badge - HOT"><input type="text" id="newIcon" placeholder="Emoji"></div>
+<input type="text" id="newUserLabel" placeholder="Username Field Ka Naam - Jaise PUBG ID / Player ID">
+<input type="text" id="newPacks" placeholder="Packs - Jaise 60 UC:500, 325 UC:2400, 660 UC:4800">
+<label style="margin-top:6px;display:block">📸 Naye Game Ki Photo</label><input type="file" id="newPhoto" accept="image/*">
 <div class="row2"><select id="newColor"><option value="#FF5E8A">Pink Gradient</option><option value="#FF2D2D">Red Glow</option><option value="#4ADE80">Green Glow</option><option value="#60A5FA">Blue Glow</option><option value="#A855F7">Purple Glow</option></select></div>
 <button class="btn-green" onclick="addGame()">➕ ADD NEW GAME</button>
 </div>
@@ -115,9 +140,49 @@ footer{background:rgba(0,0,0,.5);backdrop-filter:blur(20px);padding:28px 16px 16
 <h4 style="margin:16px 0 6px">💾 Pakka Save - Backup</h4>
 <button onclick="saveAll()" style="width:100%">💾 SAVE ALL - Pakka Save</button>
 <div style="display:flex;gap:8px;margin-top:8px"><button onclick="exportBackup()" style="flex:1;background:#333;color:#fff;box-shadow:none">📋 COPY BACKUP</button><button onclick="importBackup()" style="flex:1;background:#333;color:#fff;box-shadow:none">📥 PASTE BACKUP</button></div>
-<p id="savedMsg" style="color:#4caf50;margin-top:8px;display:none">✅ Saved! 2 Din Baad Bhi Same Rahega.</p>
+<p id="savedMsg" style="color:#4caf50;margin-top:8px;display:none">✅ Saved!</p>
 </div>
 </main>
+<div class="overlayPage" id="page1">
+<div class="pageBox">
+<div class="steps"><div class="on"></div><div></div><div></div><div></div></div>
+<div style="display:flex;justify-content:space-between"><h3 id="p1Title">Game</h3><button onclick="closeFlow()" class="btn-small">✕ Band</button></div>
+<div id="p1GameInfo"></div>
+<h4 style="margin:12px 0 6px">📦 Pack Select Karo</h4>
+<div class="pack-grid" id="packGrid"></div>
+<label id="usernameLabel">Username / ID</label>
+<input type="text" id="usernameInput" placeholder="Apna ID likho">
+<p id="usernameError" style="color:#ff1744;font-size:12px;display:none">❌ Pehle Username / ID likho!</p>
+<button class="btn-green" onclick="goToPayment()">Aage - Payment →</button>
+</div>
+</div>
+<div class="overlayPage" id="page2">
+<div class="pageBox">
+<div class="steps"><div class="on"></div><div class="on"></div><div></div><div></div></div>
+<div style="display:flex;justify-content:space-between"><h3>💳 Payment - Page 2</h3><button onclick="backToPage1()" class="btn-small">← Back</button></div>
+<div id="p2Summary" style="background:rgba(0,0,0,.35);padding:12px;border-radius:12px;margin:10px 0"></div>
+<h4>Payment Method Select Karo</h4>
+<div id="payMethods"></div>
+<p style="color:#aaa;font-size:12px;margin-top:8px">Demo Payment hai - Real payment baad me connect hoga.</p>
+<button class="btn-green" onclick="goToLoading()">💰 PAY NOW</button>
+</div>
+</div>
+<div class="overlayPage" id="page3">
+<div class="pageBox" style="text-align:center">
+<div class="steps"><div class="on"></div><div class="on"></div><div class="on"></div><div></div></div>
+<div class="spinner"></div>
+<h3>⏳ Loading... Page 3</h3>
+<p style="color:#aaa;margin-top:8px" id="loadingText">Payment verify ho raha hai...<br>Please wait, band mat karna.</p>
+</div>
+</div>
+<div class="overlayPage" id="page4">
+<div class="pageBox" style="text-align:center">
+<div class="steps"><div class="on"></div><div class="on"></div><div class="on"></div><div class="on"></div></div>
+<div id="resultBox"></div>
+<button onclick="closeFlow()" style="width:100%;margin-top:12px">🏠 Home Wapas</button>
+<button onclick="contactAdmin()" class="btn-ghost" style="width:100%;margin-top:8px">💬 Customer Service</button>
+</div>
+</div>
 <div id="pinOverlay"><div id="pinBox"><h3>🔒 Admin PIN</h3><p>Setting kholne ke liye PIN dalo</p><input type="password" id="pinInput" placeholder="••••" maxlength="4" inputmode="numeric"><p id="pinError" style="color:#ff1744;display:none">❌ Galat PIN!</p><div style="display:flex;gap:8px"><button onclick="checkPin()" style="flex:1">UNLOCK</button><button onclick="closePin()" style="flex:1;background:#333;color:#fff;box-shadow:none">Cancel</button></div></div></div>
 <footer>
 <div class="foot-top"><div class="foot-left"><h2>Deal Store</h2><p>Deal Store is your recharge store. Pay Safe, fast and fun at Deal Store.</p><p style="margin-top:20px;color:#fff;font-weight:bold">Follow us on</p><div class="social"><span>✉️</span><span>💬</span><span>𝕏</span><span>🟢</span><span>🔴</span><span>▶️</span><span>🎵</span><span>📸</span><span>f</span></div><p style="color:#fff;font-weight:bold">Deal Store Supports Payment Channels</p><div class="pay"><span id="payCardShow">VISA</span><span id="payCardShow2">Mastercard</span><span id="payAppleShow">Apple Pay</span><span id="payUsdtShow">USDT</span><span id="payBtcShow">Bitcoin</span></div></div><div class="foot-right"><h4>Contact us</h4><p>If you need any help, please click on "Customer Service" to contact us</p><button class="cs-btn">✉️ Customer Service</button></div></div>
@@ -132,55 +197,169 @@ function checkPin(){const v=document.getElementById('pinInput').value.trim();if(
 function closePin(){document.getElementById('pinOverlay').style.display='none';}
 function lockSettings(){document.getElementById('settingsCard').style.display='none';window.scrollTo({top:0,behavior:'smooth'});}
 document.getElementById('pinInput').addEventListener('keydown',e=>{if(e.key==='Enter')checkPin();});
-// 20 PREMIUM THEMES - Simple Nahi, Gradient + Glass + Glow
 const THEMES=[
-{id:"photo1",name:"1. ✨ PHOTO WALA - Peach Glass",bg:"radial-gradient(1200px 600px at 10% 0%, #3b0f3a 0%, transparent 60%), radial-gradient(1000px 500px at 100% 20%, #ff5e3a 0%, transparent 55%), radial-gradient(800px 600px at 50% 100%, #ff8a5c 0%, transparent 60%), #0a050a",accent:"#FFC9A3",accent2:"#FF5E8A",accent3:"#A855F7",banner:"linear-gradient(135deg,#FF5E8A,#A855F7,#FF8A5C,#FFC9A3)",btn:"linear-gradient(135deg,#FF5E8A,#A855F7)",glow:"0 10px 40px rgba(255,94,138,.45)"},
-{id:"redfire",name:"2. 🔥 Red Fire Glow",bg:"radial-gradient(1000px 500px at 0% 0%, #ff2d2d 0%, transparent 60%), radial-gradient(900px 600px at 100% 100%, #7f1d1d 0%, transparent 60%), #0a0505",accent:"#FF6B6B",accent2:"#FF2D2D",accent3:"#FF8A00",banner:"linear-gradient(135deg,#FF2D2D,#FF8A00,#FF2D2D)",btn:"linear-gradient(135deg,#FF2D2D,#FF8A00)",glow:"0 10px 40px rgba(255,45,45,.5)"},
-{id:"greenglow",name:"3. 💚 Green Neon Glow",bg:"radial-gradient(1000px 500px at 0% 0%, #00ff88 0%, transparent 55%), radial-gradient(900px 600px at 100% 100%, #14532d 0%, transparent 60%), #020a05",accent:"#4ADE80",accent2:"#00FF88",accent3:"#14532D",banner:"linear-gradient(135deg,#00FF88,#14532D,#4ADE80)",btn:"linear-gradient(135deg,#00FF88,#059669)",glow:"0 10px 40px rgba(0,255,136,.45)"},
-{id:"ocean",name:"4. 🌊 Ocean Dream",bg:"radial-gradient(1000px 600px at 0% 0%, #2563eb 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #06b6d4 0%, transparent 60%), #020617",accent:"#7DD3FC",accent2:"#2563EB",accent3:"#06B6D4",banner:"linear-gradient(135deg,#2563EB,#06B6D4,#7DD3FC)",btn:"linear-gradient(135deg,#2563EB,#06B6D4)",glow:"0 10px 40px rgba(37,99,235,.5)"},
-{id:"royal",name:"5. 👑 Royal Purple Gold",bg:"radial-gradient(1000px 600px at 0% 0%, #9333ea 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #d97706 0%, transparent 60%), #0f0520",accent:"#E9D5FF",accent2:"#9333EA",accent3:"#F59E0B",banner:"linear-gradient(135deg,#9333EA,#F59E0B,#C084FC)",btn:"linear-gradient(135deg,#9333EA,#F59E0B)",glow:"0 10px 40px rgba(147,51,234,.5)"},
-{id:"sunset",name:"6. 🌅 Sunset Orange Pink",bg:"radial-gradient(1000px 600px at 0% 0%, #ff5e3a 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #ec4899 0%, transparent 60%), #120800",accent:"#FDBA74",accent2:"#FF5E3A",accent3:"#EC4899",banner:"linear-gradient(135deg,#FF5E3A,#EC4899,#FDBA74)",btn:"linear-gradient(135deg,#FF5E3A,#EC4899)",glow:"0 10px 40px rgba(255,94,58,.5)"},
-{id:"midnight",name:"7. 🌌 Midnight Aurora",bg:"radial-gradient(1000px 600px at 0% 0%, #22d3ee 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #7c3aed 0%, transparent 60%), #000814",accent:"#A5F3FC",accent2:"#22D3EE",accent3:"#7C3AED",banner:"linear-gradient(135deg,#22D3EE,#7C3AED,#22D3EE)",btn:"linear-gradient(135deg,#22D3EE,#7C3AED)",glow:"0 10px 40px rgba(34,211,238,.5)"},
-{id:"emeraldlux",name:"8. 💎 Emerald Luxury",bg:"radial-gradient(1000px 600px at 0% 0%, #059669 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #f59e0b 0%, transparent 60%), #02120d",accent:"#6EE7B7",accent2:"#059669",accent3:"#F59E0B",banner:"linear-gradient(135deg,#059669,#F59E0B,#6EE7B7)",btn:"linear-gradient(135deg,#059669,#F59E0B)",glow:"0 10px 40px rgba(5,150,105,.5)"},
-{id:"barbie",name:"9. 💖 Barbie Glow",bg:"radial-gradient(1000px 600px at 0% 0%, #ec4899 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #a855f7 0%, transparent 60%), #160a12",accent:"#F9A8D4",accent2:"#EC4899",accent3:"#A855F7",banner:"linear-gradient(135deg,#EC4899,#A855F7,#F9A8D4)",btn:"linear-gradient(135deg,#EC4899,#A855F7)",glow:"0 10px 40px rgba(236,72,153,.5)"},
-{id:"cyber",name:"10. 🤖 Cyber Neon",bg:"radial-gradient(1000px 600px at 0% 0%, #00ffcc 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #ff00cc 0%, transparent 60%), #05010f",accent:"#00FFCC",accent2:"#FF00CC",accent3:"#00FFCC",banner:"linear-gradient(135deg,#00FFCC,#FF00CC,#00FFCC)",btn:"linear-gradient(135deg,#00FFCC,#FF00CC)",glow:"0 10px 40px rgba(0,255,204,.5)"},
-{id:"goldlux",name:"11. ✨ Gold Champagne",bg:"radial-gradient(1000px 600px at 0% 0%, #f59e0b 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #fff7ed 0%, transparent 60%), #0f0d00",accent:"#FDE68A",accent2:"#F59E0B",accent3:"#FFF7ED",banner:"linear-gradient(135deg,#F59E0B,#FFF7ED,#FDE68A)",btn:"linear-gradient(135deg,#F59E0B,#FDE68A)",glow:"0 10px 40px rgba(245,158,11,.5)"},
-{id:"ice",name:"12. 🧊 Ice Crystal",bg:"radial-gradient(1000px 600px at 0% 0%, #67e8f9 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #3b82f6 0%, transparent 60%), #02181a",accent:"#A5F3FC",accent2:"#67E8F9",accent3:"#3B82F6",banner:"linear-gradient(135deg,#67E8F9,#3B82F6,#A5F3FC)",btn:"linear-gradient(135deg,#67E8F9,#3B82F6)",glow:"0 10px 40px rgba(103,232,249,.5)"},
-{id:"coffee",name:"13. ☕ Coffee Caramel",bg:"radial-gradient(1000px 600px at 0% 0%, #92400e 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #fbbf24 0%, transparent 60%), #120b05",accent:"#FDE68A",accent2:"#92400E",accent3:"#FBBF24",banner:"linear-gradient(135deg,#92400E,#FBBF24,#FDE68A)",btn:"linear-gradient(135deg,#92400E,#FBBF24)",glow:"0 10px 40px rgba(146,64,14,.5)"},
-{id:"sakura",name:"14. 🌸 Sakura Blossom",bg:"radial-gradient(1000px 600px at 0% 0%, #fda4af 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #c084fc 0%, transparent 60%), #140b0e",accent:"#FBCFE8",accent2:"#FDA4AF",accent3:"#C084FC",banner:"linear-gradient(135deg,#FDA4AF,#C084FC,#FBCFE8)",btn:"linear-gradient(135deg,#FDA4AF,#C084FC)",glow:"0 10px 40px rgba(253,164,175,.5)"},
-{id:"forest",name:"15. 🌲 Forest Mystic",bg:"radial-gradient(1000px 600px at 0% 0%, #16a34a 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #a3e635 0%, transparent 60%), #0c1200",accent:"#D9F99D",accent2:"#16A34A",accent3:"#A3E635",banner:"linear-gradient(135deg,#16A34A,#A3E635,#D9F99D)",btn:"linear-gradient(135deg,#16A34A,#A3E635)",glow:"0 10px 40px rgba(22,163,74,.5)"},
-{id:"bloodmoon",name:"16. 🌕 Blood Moon",bg:"radial-gradient(1000px 600px at 0% 0%, #dc2626 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #facc15 0%, transparent 60%), #120505",accent:"#FECACA",accent2:"#DC2626",accent3:"#FACC15",banner:"linear-gradient(135deg,#DC2626,#FACC15,#FECACA)",btn:"linear-gradient(135deg,#DC2626,#FACC15)",glow:"0 10px 40px rgba(220,38,38,.5)"},
-{id:"lavender",name:"17. 💜 Lavender Dream",bg:"radial-gradient(1000px 600px at 0% 0%, #ddd6fe 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #818cf8 0%, transparent 60%), #0e061a",accent:"#DDD6FE",accent2:"#A78BFA",accent3:"#818CF8",banner:"linear-gradient(135deg,#A78BFA,#818CF8,#DDD6FE)",btn:"linear-gradient(135deg,#A78BFA,#818CF8)",glow:"0 10px 40px rgba(167,139,250,.5)"},
-{id:"mint",name:"18. 🌿 Mint Fresh",bg:"radial-gradient(1000px 600px at 0% 0%, #5eead4 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #34d399 0%, transparent 60%), #021312",accent:"#99F6E4",accent2:"#5EEAD4",accent3:"#34D399",banner:"linear-gradient(135deg,#5EEAD4,#34D399,#99F6E4)",btn:"linear-gradient(135deg,#5EEAD4,#34D399)",glow:"0 10px 40px rgba(94,234,212,.5)"},
-{id:"galaxy",name:"19. 🌌 Galaxy",bg:"radial-gradient(1000px 600px at 0% 0%, #6366f1 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #ec4899 0%, transparent 60%), radial-gradient(800px 500px at 50% 100%, #06b6d4 0%, transparent 60%), #05010f",accent:"#C7D2FE",accent2:"#6366F1",accent3:"#EC4899",banner:"linear-gradient(135deg,#6366F1,#EC4899,#06B6D4)",btn:"linear-gradient(135deg,#6366F1,#EC4899)",glow:"0 10px 40px rgba(99,102,241,.5)"},
-{id:"obsidian",name:"20. 🖤 Obsidian Silver",bg:"radial-gradient(1000px 600px at 0% 0%, #475569 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #e2e8f0 0%, transparent 60%), #111111",accent:"#E2E8F0",accent2:"#94A3B8",accent3:"#E2E8F0",banner:"linear-gradient(135deg,#475569,#E2E8F0,#94A3B8)",btn:"linear-gradient(135deg,#475569,#E2E8F0)",glow:"0 10px 40px rgba(148,163,184,.4)"}
+{id:"photo1",name:"1. ✨ PHOTO WALA - Peach Glass",bg:"radial-gradient(1200px 600px at 10% 0%, #3b0f3a 0%, transparent 60%), radial-gradient(1000px 500px at 100% 20%, #ff5e3a 0%, transparent 55%), radial-gradient(800px 600px at 50% 100%, #ff8a5c 0%, transparent 60%), #0a050a",accent:"#FFC9A3",accent2:"#FF5E8A",banner:"linear-gradient(135deg,#FF5E8A,#A855F7,#FF8A5C,#FFC9A3)",btn:"linear-gradient(135deg,#FF5E8A,#A855F7)",glow:"0 10px 40px rgba(255,94,138,.45)"},
+{id:"redfire",name:"2. 🔥 Red Fire Glow",bg:"radial-gradient(1000px 500px at 0% 0%, #ff2d2d 0%, transparent 60%), radial-gradient(900px 600px at 100% 100%, #7f1d1d 0%, transparent 60%), #0a0505",accent:"#FF6B6B",accent2:"#FF2D2D",banner:"linear-gradient(135deg,#FF2D2D,#FF8A00,#FF2D2D)",btn:"linear-gradient(135deg,#FF2D2D,#FF8A00)",glow:"0 10px 40px rgba(255,45,45,.5)"},
+{id:"greenglow",name:"3. 💚 Green Neon Glow",bg:"radial-gradient(1000px 500px at 0% 0%, #00ff88 0%, transparent 55%), radial-gradient(900px 600px at 100% 100%, #14532d 0%, transparent 60%), #020a05",accent:"#4ADE80",accent2:"#00FF88",banner:"linear-gradient(135deg,#00FF88,#14532D,#4ADE80)",btn:"linear-gradient(135deg,#00FF88,#059669)",glow:"0 10px 40px rgba(0,255,136,.45)"},
+{id:"ocean",name:"4. 🌊 Ocean Dream",bg:"radial-gradient(1000px 600px at 0% 0%, #2563eb 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #06b6d4 0%, transparent 60%), #020617",accent:"#7DD3FC",accent2:"#2563EB",banner:"linear-gradient(135deg,#2563EB,#06B6D4,#7DD3FC)",btn:"linear-gradient(135deg,#2563EB,#06B6D4)",glow:"0 10px 40px rgba(37,99,235,.5)"},
+{id:"royal",name:"5. 👑 Royal Purple Gold",bg:"radial-gradient(1000px 600px at 0% 0%, #9333ea 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #d97706 0%, transparent 60%), #0f0520",accent:"#E9D5FF",accent2:"#9333EA",banner:"linear-gradient(135deg,#9333EA,#F59E0B,#C084FC)",btn:"linear-gradient(135deg,#9333EA,#F59E0B)",glow:"0 10px 40px rgba(147,51,234,.5)"},
+{id:"sunset",name:"6. 🌅 Sunset Orange Pink",bg:"radial-gradient(1000px 600px at 0% 0%, #ff5e3a 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #ec4899 0%, transparent 60%), #120800",accent:"#FDBA74",accent2:"#FF5E3A",banner:"linear-gradient(135deg,#FF5E3A,#EC4899,#FDBA74)",btn:"linear-gradient(135deg,#FF5E3A,#EC4899)",glow:"0 10px 40px rgba(255,94,58,.5)"},
+{id:"midnight",name:"7. 🌌 Midnight Aurora",bg:"radial-gradient(1000px 600px at 0% 0%, #22d3ee 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #7c3aed 0%, transparent 60%), #000814",accent:"#A5F3FC",accent2:"#22D3EE",banner:"linear-gradient(135deg,#22D3EE,#7C3AED,#22D3EE)",btn:"linear-gradient(135deg,#22D3EE,#7C3AED)",glow:"0 10px 40px rgba(34,211,238,.5)"},
+{id:"emeraldlux",name:"8. 💎 Emerald Luxury",bg:"radial-gradient(1000px 600px at 0% 0%, #059669 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #f59e0b 0%, transparent 60%), #02120d",accent:"#6EE7B7",accent2:"#059669",banner:"linear-gradient(135deg,#059669,#F59E0B,#6EE7B7)",btn:"linear-gradient(135deg,#059669,#F59E0B)",glow:"0 10px 40px rgba(5,150,105,.5)"},
+{id:"barbie",name:"9. 💖 Barbie Glow",bg:"radial-gradient(1000px 600px at 0% 0%, #ec4899 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #a855f7 0%, transparent 60%), #160a12",accent:"#F9A8D4",accent2:"#EC4899",banner:"linear-gradient(135deg,#EC4899,#A855F7,#F9A8D4)",btn:"linear-gradient(135deg,#EC4899,#A855F7)",glow:"0 10px 40px rgba(236,72,153,.5)"},
+{id:"cyber",name:"10. 🤖 Cyber Neon",bg:"radial-gradient(1000px 600px at 0% 0%, #00ffcc 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #ff00cc 0%, transparent 60%), #05010f",accent:"#00FFCC",accent2:"#FF00CC",banner:"linear-gradient(135deg,#00FFCC,#FF00CC,#00FFCC)",btn:"linear-gradient(135deg,#00FFCC,#FF00CC)",glow:"0 10px 40px rgba(0,255,204,.5)"},
+{id:"goldlux",name:"11. ✨ Gold Champagne",bg:"radial-gradient(1000px 600px at 0% 0%, #f59e0b 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #fff7ed 0%, transparent 60%), #0f0d00",accent:"#FDE68A",accent2:"#F59E0B",banner:"linear-gradient(135deg,#F59E0B,#FFF7ED,#FDE68A)",btn:"linear-gradient(135deg,#F59E0B,#FDE68A)",glow:"0 10px 40px rgba(245,158,11,.5)"},
+{id:"ice",name:"12. 🧊 Ice Crystal",bg:"radial-gradient(1000px 600px at 0% 0%, #67e8f9 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #3b82f6 0%, transparent 60%), #02181a",accent:"#A5F3FC",accent2:"#67E8F9",banner:"linear-gradient(135deg,#67E8F9,#3B82F6,#A5F3FC)",btn:"linear-gradient(135deg,#67E8F9,#3B82F6)",glow:"0 10px 40px rgba(103,232,249,.5)"},
+{id:"coffee",name:"13. ☕ Coffee Caramel",bg:"radial-gradient(1000px 600px at 0% 0%, #92400e 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #fbbf24 0%, transparent 60%), #120b05",accent:"#FDE68A",accent2:"#92400E",banner:"linear-gradient(135deg,#92400E,#FBBF24,#FDE68A)",btn:"linear-gradient(135deg,#92400E,#FBBF24)",glow:"0 10px 40px rgba(146,64,14,.5)"},
+{id:"sakura",name:"14. 🌸 Sakura Blossom",bg:"radial-gradient(1000px 600px at 0% 0%, #fda4af 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #c084fc 0%, transparent 60%), #140b0e",accent:"#FBCFE8",accent2:"#FDA4AF",banner:"linear-gradient(135deg,#FDA4AF,#C084FC,#FBCFE8)",btn:"linear-gradient(135deg,#FDA4AF,#C084FC)",glow:"0 10px 40px rgba(253,164,175,.5)"},
+{id:"forest",name:"15. 🌲 Forest Mystic",bg:"radial-gradient(1000px 600px at 0% 0%, #16a34a 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #a3e635 0%, transparent 60%), #0c1200",accent:"#D9F99D",accent2:"#16A34A",banner:"linear-gradient(135deg,#16A34A,#A3E635,#D9F99D)",btn:"linear-gradient(135deg,#16A34A,#A3E635)",glow:"0 10px 40px rgba(22,163,74,.5)"},
+{id:"bloodmoon",name:"16. 🌕 Blood Moon",bg:"radial-gradient(1000px 600px at 0% 0%, #dc2626 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #facc15 0%, transparent 60%), #120505",accent:"#FECACA",accent2:"#DC2626",banner:"linear-gradient(135deg,#DC2626,#FACC15,#FECACA)",btn:"linear-gradient(135deg,#DC2626,#FACC15)",glow:"0 10px 40px rgba(220,38,38,.5)"},
+{id:"lavender",name:"17. 💜 Lavender Dream",bg:"radial-gradient(1000px 600px at 0% 0%, #ddd6fe 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #818cf8 0%, transparent 60%), #0e061a",accent:"#DDD6FE",accent2:"#A78BFA",banner:"linear-gradient(135deg,#A78BFA,#818CF8,#DDD6FE)",btn:"linear-gradient(135deg,#A78BFA,#818CF8)",glow:"0 10px 40px rgba(167,139,250,.5)"},
+{id:"mint",name:"18. 🌿 Mint Fresh",bg:"radial-gradient(1000px 600px at 0% 0%, #5eead4 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #34d399 0%, transparent 60%), #021312",accent:"#99F6E4",accent2:"#5EEAD4",banner:"linear-gradient(135deg,#5EEAD4,#34D399,#99F6E4)",btn:"linear-gradient(135deg,#5EEAD4,#34D399)",glow:"0 10px 40px rgba(94,234,212,.5)"},
+{id:"galaxy",name:"19. 🌌 Galaxy",bg:"radial-gradient(1000px 600px at 0% 0%, #6366f1 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #ec4899 0%, transparent 60%), radial-gradient(800px 500px at 50% 100%, #06b6d4 0%, transparent 60%), #05010f",accent:"#C7D2FE",accent2:"#6366F1",banner:"linear-gradient(135deg,#6366F1,#EC4899,#06B6D4)",btn:"linear-gradient(135deg,#6366F1,#EC4899)",glow:"0 10px 40px rgba(99,102,241,.5)"},
+{id:"obsidian",name:"20. 🖤 Obsidian Silver",bg:"radial-gradient(1000px 600px at 0% 0%, #475569 0%, transparent 60%), radial-gradient(900px 500px at 100% 100%, #e2e8f0 0%, transparent 60%), #111111",accent:"#E2E8F0",accent2:"#94A3B8",banner:"linear-gradient(135deg,#475569,#E2E8F0,#94A3B8)",btn:"linear-gradient(135deg,#475569,#E2E8F0)",glow:"0 10px 40px rgba(148,163,184,.4)"}
 ];
 let currentTheme=localStorage.getItem('deal_theme')||"photo1";
-function applyTheme(id){
-  const t=THEMES.find(x=>x.id===id)||THEMES[0];
-  currentTheme=id;
-  const r=document.documentElement.style;
-  r.setProperty('--bg',t.bg); r.setProperty('--accent',t.accent); r.setProperty('--accent2',t.accent2); r.setProperty('--banner',t.banner); r.setProperty('--btn-bg',t.btn); r.setProperty('--glow',t.glow);
-  localStorage.setItem('deal_theme',id);
-  renderThemeGrid();
-}
+function applyTheme(id){const t=THEMES.find(x=>x.id===id)||THEMES[0];currentTheme=id;const r=document.documentElement.style;r.setProperty('--bg',t.bg);r.setProperty('--accent',t.accent);r.setProperty('--accent2',t.accent2);r.setProperty('--banner',t.banner);r.setProperty('--btn-bg',t.btn);r.setProperty('--glow',t.glow);localStorage.setItem('deal_theme',id);renderThemeGrid();}
 function renderThemeGrid(){document.getElementById('themeGrid').innerHTML=THEMES.map(t=>`<div class="theme-opt ${t.id===currentTheme?'selected':''}" onclick="applyTheme('${t.id}')" style="background:${t.banner}">${t.name}</div>`).join('');}
-let defaultGames=[{name:"PUBG Mobile UC",cat:"Battle Royale",price:"From 25K",badge:"HOT",color:"#FF5E8A",icon:"🪙"},{name:"BGMI UC",cat:"Battle Royale",price:"From 25K",badge:"HOT",color:"#FF8A00",icon:"🪙"},{name:"Free Fire Diamonds",cat:"Diamonds",price:"From 25K",badge:"HOT",color:"#FF5E8A",icon:"💎"},{name:"Free Fire MAX Diamonds",cat:"Diamonds",price:"From 25K",badge:"TRENDING",color:"#EC4899",icon:"💎"},{name:"COD Mobile CP",cat:"Battle Royale",price:"From 25K",badge:"TRENDING",color:"#2563EB",icon:"🪖"},{name:"Mobile Legends Diamonds",cat:"Diamonds",price:"From 25K",badge:"TRENDING",color:"#06B6D4",icon:"💎"},{name:"Clash of Clans Gold Pass",cat:"Coins",price:"From 25K",badge:"TRENDING",color:"#F59E0B",icon:"🏆"},{name:"TikTok Coins",cat:"Coins",price:"From 25K",badge:"HOT",color:"#EC4899",icon:"🪙"},{name:"Valorant Points",cat:"Coins",price:"From 25K",badge:"TRENDING",color:"#059669",icon:"🔴"},{name:"Fortnite V-Bucks",cat:"Coins",price:"From 25K",badge:"",color:"#7C3AED",icon:"🟦"},{name:"Clash Royale Gems",cat:"Diamonds",price:"From 25K",badge:"",color:"#059669",icon:"💜"},{name:"Brawl Stars Gems",cat:"Diamonds",price:"From 25K",badge:"",color:"#7C3AED",icon:"💎"},{name:"Genshin Genesis Crystals",cat:"Coins",price:"From 25K",badge:"",color:"#2563EB",icon:"✨"},{name:"Roblox Robux",cat:"Coins",price:"From 25K",badge:"",color:"#F59E0B",icon:"🧱"}];
+let defaultGames=[
+{name:"PUBG Mobile UC",cat:"Battle Royale",price:"From 25K",badge:"HOT",color:"#FF5E8A",icon:"🪙",photo:"",userLabel:"PUBG ID / Player ID",packs:"60 UC:500,325 UC:2400,660 UC:4800,1800 UC:12000"},
+{name:"BGMI UC",cat:"Battle Royale",price:"From 25K",badge:"HOT",color:"#FF8A00",icon:"🪙",photo:"",userLabel:"BGMI ID",packs:"60 UC:500,325 UC:2400,660 UC:4800"},
+{name:"Free Fire Diamonds",cat:"Diamonds",price:"From 25K",badge:"HOT",color:"#FF5E8A",icon:"💎",photo:"",userLabel:"Free Fire ID",packs:"100 Diamonds:400,310 Diamonds:1200,520 Diamonds:2000,1060 Diamonds:4000"},
+{name:"Free Fire MAX Diamonds",cat:"Diamonds",price:"From 25K",badge:"TRENDING",color:"#EC4899",icon:"💎",photo:"",userLabel:"Free Fire MAX ID",packs:"100 Diamonds:400,310 Diamonds:1200,520 Diamonds:2000"},
+{name:"COD Mobile CP",cat:"Battle Royale",price:"From 25K",badge:"TRENDING",color:"#2563EB",icon:"🪖",photo:"",userLabel:"COD UID",packs:"80 CP:500,420 CP:2400,880 CP:4800"},
+{name:"Mobile Legends Diamonds",cat:"Diamonds",price:"From 25K",badge:"TRENDING",color:"#06B6D4",icon:"💎",photo:"",userLabel:"MLBB ID + Server",packs:"86 Diamonds:500,172 Diamonds:1000,257 Diamonds:1500"},
+{name:"Clash of Clans Gold Pass",cat:"Coins",price:"From 25K",badge:"TRENDING",color:"#F59E0B",icon:"🏆",photo:"",userLabel:"Player Tag",packs:"Gold Pass:2500"},
+{name:"TikTok Coins",cat:"Coins",price:"From 25K",badge:"HOT",color:"#EC4899",icon:"🪙",photo:"",userLabel:"TikTok Username",packs:"100 Coins:400,500 Coins:1800,1000 Coins:3500"},
+{name:"Valorant Points",cat:"Coins",price:"From 25K",badge:"TRENDING",color:"#059669",icon:"🔴",photo:"",userLabel:"Riot ID",packs:"475 VP:1500,1000 VP:3000,2050 VP:6000"},
+{name:"Fortnite V-Bucks",cat:"Coins",price:"From 25K",badge:"",color:"#7C3AED",icon:"🟦",photo:"",userLabel:"Epic Username",packs:"1000 V-Bucks:2500,2800 V-Bucks:6500"},
+{name:"Clash Royale Gems",cat:"Diamonds",price:"From 25K",badge:"",color:"#059669",icon:"💜",photo:"",userLabel:"Player Tag",packs:"80 Gems:500,500 Gems:2500"},
+{name:"Brawl Stars Gems",cat:"Diamonds",price:"From 25K",badge:"",color:"#7C3AED",icon:"💎",photo:"",userLabel:"Player Tag",packs:"30 Gems:500,80 Gems:1200,170 Gems:2500"},
+{name:"Genshin Genesis Crystals",cat:"Coins",price:"From 25K",badge:"",color:"#2563EB",icon:"✨",photo:"",userLabel:"UID",packs:"60 Crystals:500,300 Crystals:2500,980 Crystals:7500"},
+{name:"Roblox Robux",cat:"Coins",price:"From 25K",badge:"",color:"#F59E0B",icon:"🧱",photo:"",userLabel:"Roblox Username",packs:"400 Robux:1500,800 Robux:3000,1700 Robux:6000"}
+];
 let games=JSON.parse(localStorage.getItem('deal_games')||'null')||defaultGames;
+games=games.map(g=>({...g,photo:g.photo||"",userLabel:g.userLabel||"Username / ID",packs:g.packs||"Standard:500"}));
 let filters=JSON.parse(localStorage.getItem('deal_filters')||'null')||["All","Trending","Battle Royale","Diamonds","Coins"];
 let activeFilter="All";
+let orders=JSON.parse(localStorage.getItem('deal_orders')||'[]');
+let curGame=null, curPack=null, curPay="Card";
+function parsePacks(s){ return s.split(',').map(x=>{let p=x.split(':'); return {name:(p[0]||"Pack").trim(), price:(p[1]||"500").trim()}; }).filter(x=>x.name); }
 function renderFilters(){const bar=document.getElementById('filterBar');bar.innerHTML='';filters.forEach(f=>{const b=document.createElement('button');b.textContent=f;if(f===activeFilter)b.classList.add('active');b.onclick=()=>{activeFilter=f;renderAll();};bar.appendChild(b);});document.getElementById('filterInput').value=filters.join(', ');}
-function gameCard(g){return `<div class="card-game"><div class="top" style="background:linear-gradient(135deg,${g.color},#00000066)"><span style="font-size:30px">${g.icon}</span><small style="font-size:10px;background:rgba(0,0,0,.35);padding:2px 6px;border-radius:10px">${g.cat}</small></div><div class="inner">${g.badge?`<span class="badge">${g.badge}</span>`:''}<b>${g.name}</b><small>${g.cat} • sold</small><div style="font-size:12px;margin-top:4px">${g.price}</div></div></div>`;}
-function renderAll(){renderFilters();let list=games;if(activeFilter!=="All"&&activeFilter!=="Trending")list=games.filter(g=>g.cat===activeFilter);if(activeFilter==="Trending")list=games.filter(g=>g.badge==="HOT"||g.badge==="TRENDING");document.getElementById('trendingGrid').innerHTML=games.slice(0,8).map(gameCard).join('');document.getElementById('allGrid').innerHTML=list.map(gameCard).join('');document.getElementById('gamesEditor').innerHTML=games.map((g,i)=>`<div class="game-edit"><div style="display:flex;justify-content:space-between"><b>Box ${i+1} - ${g.name}</b><button class="btn-red" onclick="deleteGame(${i})">🗑️ Delete</button></div><input type="text" value="${g.name}" data-name="${i}"><div class="row2"><input type="text" value="${g.cat}" data-cat="${i}"><input type="text" value="${g.price}" data-price="${i}"></div><div class="row2"><input type="text" value="${g.badge}" data-badge="${i}"><input type="text" value="${g.icon}" data-icon="${i}"></div></div>`).join('');}
-function collectGames(){document.querySelectorAll('[data-name]').forEach(el=>{games[+el.dataset.name].name=el.value;});document.querySelectorAll('[data-cat]').forEach(el=>{games[+el.dataset.cat].cat=el.value;});document.querySelectorAll('[data-price]').forEach(el=>{games[+el.dataset.price].price=el.value;});document.querySelectorAll('[data-badge]').forEach(el=>{games[+el.dataset.badge].badge=el.value;});document.querySelectorAll('[data-icon]').forEach(el=>{games[+el.dataset.icon].icon=el.value;});}
-function addGame(){const name=document.getElementById('newName').value.trim();if(!name){alert('Pehle Naam Likho!');return;}collectGames();games.push({name:name,cat:document.getElementById('newCat').value||"Coins",price:document.getElementById('newPrice').value||"From 25K",badge:document.getElementById('newBadge').value||"HOT",icon:document.getElementById('newIcon').value||"🎮",color:document.getElementById('newColor').value||"#FF5E8A"});localStorage.setItem('deal_games',JSON.stringify(games));document.getElementById('newName').value='';renderAll();alert('✅ Add Ho Gaya!');}
+function gameCard(g,idx){
+  let topInner = g.photo ? `<img src="${g.photo}"><div class="overlay"></div><span class="emoji" style="font-size:12px;background:rgba(0,0,0,.5);padding:3px 8px;border-radius:10px">${g.cat}</span>` : `<span class="emoji">${g.icon}</span><small style="font-size:10px;background:rgba(0,0,0,.35);padding:2px 6px;border-radius:10px">${g.cat}</small>`;
+  let bg = g.photo ? `background:#000` : `background:linear-gradient(135deg,${g.color},#00000066)`;
+  return `<div class="card-game" onclick="openGame(${idx})"><div class="top" style="${bg}">${topInner}</div><div class="inner">${g.badge?`<span class="badge">${g.badge}</span>`:''}<b>${g.name}</b><small>${g.cat} • sold</small><div style="font-size:12px;margin-top:4px">${g.price} • Tap to Buy →</div></div></div>`;
+}
+function renderAll(){
+  renderFilters();
+  let list=games;
+  if(activeFilter!=="All"&&activeFilter!=="Trending")list=games.filter(g=>g.cat===activeFilter);
+  if(activeFilter==="Trending")list=games.filter(g=>g.badge==="HOT"||g.badge==="TRENDING");
+  document.getElementById('trendingGrid').innerHTML=games.slice(0,8).map((g,i)=>gameCard(g,games.indexOf(g))).join('');
+  document.getElementById('allGrid').innerHTML=list.map(g=>gameCard(g,games.indexOf(g))).join('');
+  renderOrders(); renderThemeGrid();
+  document.getElementById('gamesEditor').innerHTML=games.map((g,i)=>`
+  <div class="game-edit">
+    <div style="display:flex;justify-content:space-between;align-items:center"><b>Box ${i+1} - ${g.name}</b><button class="btn-red" onclick="deleteGame(${i})">🗑️ Delete</button></div>
+    <div class="preview">${g.photo?`<img src="${g.photo}">`:`<span style="font-size:30px">${g.icon}</span>`}</div>
+    <label style="font-size:12px">📸 Is Game Ki Photo - PUBG Icon / UC Pack Photo</label>
+    <input type="file" accept="image/*" onchange="uploadGamePhoto(event,${i})">
+    ${g.photo?`<button class="btn-small" onclick="removeGamePhoto(${i})">❌ Photo Hatao</button>`:''}
+    <input type="text" value="${g.name}" data-name="${i}" placeholder="Naam">
+    <div class="row2"><input type="text" value="${g.cat}" data-cat="${i}" placeholder="Category"><input type="text" value="${g.price}" data-price="${i}" placeholder="Price"></div>
+    <div class="row2"><input type="text" value="${g.badge}" data-badge="${i}" placeholder="Badge"><input type="text" value="${g.icon}" data-icon="${i}" placeholder="Emoji"></div>
+    <label style="font-size:12px">👤 Username Field - Har Game Ka Apna</label>
+    <input type="text" value="${g.userLabel}" data-userlabel="${i}" placeholder="Jaise PUBG ID / Free Fire ID / TikTok Username">
+    <label style="font-size:12px">📦 Packs - Aise likho: 60 UC:500, 325 UC:2400</label>
+    <input type="text" value="${g.packs}" data-packs="${i}" placeholder="60 UC:500, 325 UC:2400">
+  </div>`).join('');
+}
+function renderOrders(){
+  const el=document.getElementById('ordersList'); if(!el) return;
+  if(!orders.length){ el.innerHTML=`<p style="color:#aaa;font-size:12px">Abhi koi Order nahi hai.</p>`; return; }
+  el.innerHTML=orders.map((o,i)=>`
+  <div class="order-row">
+    <b>${o.game} - ${o.pack}</b><br>
+    <span style="font-size:12px;color:#ccc">👤 ${o.userLabel}: ${o.username} | 💳 ${o.pay} | 💰 ${o.price} | 🆔 ${o.id}</span><br>
+    <span style="font-size:12px">Status: <b style="color:${o.status==='Success'?'#00ff88':o.status==='Failed'?'#ff1744':'#ffcc00'}">${o.status}</b></span>
+    <div style="display:flex;gap:6px;margin-top:8px">
+      <button onclick="setOrderStatus(${i},'Success')" style="flex:1;background:#00c853;box-shadow:none;padding:7px">✅ Success</button>
+      <button onclick="setOrderStatus(${i},'Pending')" style="flex:1;background:#ffcc00;color:#000;box-shadow:none;padding:7px">⏳ Pending</button>
+      <button onclick="setOrderStatus(${i},'Failed')" style="flex:1;background:#ff1744;box-shadow:none;padding:7px">❌ Failed</button>
+    </div>
+  </div>`).join('');
+}
+function setOrderStatus(i,s){ orders[i].status=s; localStorage.setItem('deal_orders',JSON.stringify(orders)); renderOrders(); alert('✅ Order Status '+s+' kar diya!'); }
+function clearOrders(){ if(!confirm('Sab Orders delete karne hain?')) return; orders=[]; localStorage.setItem('deal_orders','[]'); renderOrders(); }
+function openGame(idx){
+  curGame=games[idx];
+  document.getElementById('p1Title').textContent=curGame.name;
+  document.getElementById('p1GameInfo').innerHTML=`<div style="display:flex;gap:10px;align-items:center"><div style="width:60px;height:60px;border-radius:12px;overflow:hidden;background:#222;display:flex;align-items:center;justify-content:center">${curGame.photo?`<img src="${curGame.photo}" style="width:100%;height:100%;object-fit:cover">`:`<span style="font-size:28px">${curGame.icon}</span>`}</div><div><b>${curGame.name}</b><br><small style="color:#aaa">${curGame.cat} • ${curGame.badge||''}</small></div></div>`;
+  let packs=parsePacks(curGame.packs); curPack=packs[0];
+  document.getElementById('packGrid').innerHTML=packs.map((p,pi)=>`<div class="pack ${pi===0?'sel':''}" onclick="selectPack(${pi})"><b>${p.name}</b><br><span style="font-size:12px">Rs ${p.price}</span></div>`).join('');
+  document.getElementById('usernameLabel').textContent=curGame.userLabel;
+  document.getElementById('usernameInput').placeholder=curGame.userLabel+" likho - Jaise "+curGame.userLabel;
+  document.getElementById('usernameInput').value='';
+  document.getElementById('usernameError').style.display='none';
+  document.getElementById('page1').style.display='block';
+}
+function selectPack(pi){ curPack=parsePacks(curGame.packs)[pi]; document.querySelectorAll('#packGrid .pack').forEach((el,i)=>{ el.classList.toggle('sel',i===pi); }); }
+function closeFlow(){ ['page1','page2','page3','page4'].forEach(id=>document.getElementById(id).style.display='none'); }
+function backToPage1(){ document.getElementById('page2').style.display='none'; document.getElementById('page1').style.display='block'; }
+function goToPayment(){
+  const u=document.getElementById('usernameInput').value.trim();
+  if(!u){ document.getElementById('usernameError').style.display='block'; return; }
+  document.getElementById('page1').style.display='none';
+  document.getElementById('p2Summary').innerHTML=`<b>${curGame.name}</b><br>📦 Pack: ${curPack.name} - Rs ${curPack.price}<br>👤 ${curGame.userLabel}: ${u}<br>🆔 Order ID: DS-${Date.now().toString().slice(-6)}`;
+  let methods=[];
+  if(document.getElementById('payCard').checked) methods.push({n:"💳 Card",v:"Card"});
+  if(document.getElementById('payApple').checked) methods.push({n:"🍎 Apple Pay",v:"Apple Pay"});
+  if(document.getElementById('payUsdt').checked) methods.push({n:"🪙 USDT",v:"USDT"});
+  if(document.getElementById('payBtc').checked) methods.push({n:"₿ Bitcoin",v:"Bitcoin"});
+  if(!methods.length) methods.push({n:"💳 Card",v:"Card"});
+  curPay=methods[0].v;
+  document.getElementById('payMethods').innerHTML=methods.map((m,mi)=>`<div class="pay-opt ${mi===0?'sel':''}" onclick="selectPay('${m.v}',this)"><span>${m.n}</span><span>Rs ${curPack.price} →</span></div>`).join('');
+  document.getElementById('page2').style.display='block';
+}
+function selectPay(v,el){ curPay=v; document.querySelectorAll('#payMethods .pay-opt').forEach(e=>e.classList.remove('sel')); el.classList.add('sel'); }
+function goToLoading(){
+  document.getElementById('page2').style.display='none';
+  document.getElementById('page3').style.display='block';
+  let order={id:"DS-"+Date.now().toString().slice(-6),game:curGame.name,pack:curPack.name,price:curPack.price,username:document.getElementById('usernameInput').value.trim(),userLabel:curGame.userLabel,pay:curPay,status:"Pending",time:new Date().toLocaleString()};
+  orders.unshift(order); localStorage.setItem('deal_orders',JSON.stringify(orders)); renderOrders();
+  window._lastOrder=order;
+  setTimeout(()=>{ showResult(); },3000);
+}
+function showResult(){
+  document.getElementById('page3').style.display='none';
+  let o=window._lastOrder;
+  let found=orders.find(x=>x.id===o.id); let st=found?found.status:"Pending";
+  let html="";
+  if(st==="Success") html=`<div style="font-size:60px">✅</div><h2 style="color:#00ff88">Success!</h2><p style="color:#ccc;margin-top:8px">Tera ${o.pack} ${o.game} me send kar diya gaya hai.<br>👤 ${o.userLabel}: ${o.username}<br>🆔 Order ID: ${o.id}</p>`;
+  else if(st==="Failed") html=`<div style="font-size:60px">❌</div><h2 style="color:#ff1744">Failed!</h2><p style="color:#ccc;margin-top:8px">Payment fail ho gaya. Paisa wapas aayega.<br>🆔 Order ID: ${o.id}<br>Customer Service se contact karo.</p>`;
+  else html=`<div style="font-size:60px">⏳</div><h2 style="color:#ffcc00">Pending...</h2><p style="color:#ccc;margin-top:8px">Tera order Pending me hai.<br>Admin check karke Success karega.<br>👤 ${o.userLabel}: ${o.username}<br>🆔 Order ID: ${o.id}<br>Thodi der baad check karo.</p>`;
+  document.getElementById('resultBox').innerHTML=html+`<p style="color:#888;font-size:12px;margin-top:10px">Pack: ${o.pack} | Price: Rs ${o.price} | Payment: ${o.pay}</p>`;
+  document.getElementById('page4').style.display='block';
+}
+function contactAdmin(){ alert('Customer Service: '+ (document.getElementById('showContact').textContent||'Contact Setting me hai') ); }
+function uploadGamePhoto(e,i){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{games[i].photo=ev.target.result;localStorage.setItem('deal_games',JSON.stringify(games));renderAll();alert('✅ Photo Lag Gayi!');};r.readAsDataURL(f);}
+function removeGamePhoto(i){games[i].photo="";localStorage.setItem('deal_games',JSON.stringify(games));renderAll();}
+function collectGames(){document.querySelectorAll('[data-name]').forEach(el=>{games[+el.dataset.name].name=el.value;});document.querySelectorAll('[data-cat]').forEach(el=>{games[+el.dataset.cat].cat=el.value;});document.querySelectorAll('[data-price]').forEach(el=>{games[+el.dataset.price].price=el.value;});document.querySelectorAll('[data-badge]').forEach(el=>{games[+el.dataset.badge].badge=el.value;});document.querySelectorAll('[data-icon]').forEach(el=>{games[+el.dataset.icon].icon=el.value;});document.querySelectorAll('[data-userlabel]').forEach(el=>{games[+el.dataset.userlabel].userLabel=el.value;});document.querySelectorAll('[data-packs]').forEach(el=>{games[+el.dataset.packs].packs=el.value;});}
+function addGame(){
+  const name=document.getElementById('newName').value.trim();if(!name){alert('Pehle Naam Likho!');return;}collectGames();
+  let newGame={name:name,cat:document.getElementById('newCat').value||"Coins",price:document.getElementById('newPrice').value||"From 25K",badge:document.getElementById('newBadge').value||"HOT",icon:document.getElementById('newIcon').value||"🎮",color:document.getElementById('newColor').value||"#FF5E8A",photo:"",userLabel:document.getElementById('newUserLabel').value||"Username / ID",packs:document.getElementById('newPacks').value||"Standard:500"};
+  const file=document.getElementById('newPhoto').files[0];
+  const push=()=>{games.push(newGame);localStorage.setItem('deal_games',JSON.stringify(games));document.getElementById('newName').value='';document.getElementById('newPhoto').value='';renderAll();alert('✅ Naya Game Add Ho Gaya!');};
+  if(file){const r=new FileReader();r.onload=ev=>{newGame.photo=ev.target.result;push();};r.readAsDataURL(file);}else push();
+}
 function deleteGame(i){if(!confirm('Delete karna hai?'))return;collectGames();games.splice(i,1);localStorage.setItem('deal_games',JSON.stringify(games));renderAll();}
 function updatePay(){const c=document.getElementById('payCard').checked,a=document.getElementById('payApple').checked,u=document.getElementById('payUsdt').checked,b=document.getElementById('payBtc').checked;document.getElementById('payCardShow').style.display=c?'':'none';document.getElementById('payCardShow2').style.display=c?'':'none';document.getElementById('payAppleShow').style.display=a?'':'none';document.getElementById('payUsdtShow').style.display=u?'':'none';document.getElementById('payBtcShow').style.display=b?'':'none';}
 function readFile(input,key,cb){if(!input.files[0])return cb();const r=new FileReader();r.onload=e=>{localStorage.setItem(key,e.target.result);cb();};r.readAsDataURL(input.files[0]);}
-function getBackup(){return JSON.stringify({theme:currentTheme,games:games,filters:filters,contact:document.getElementById('contactInput').value,address:document.getElementById('addressInput').value,banner:localStorage.getItem('deal_banner')||'',logo:localStorage.getItem('deal_logo')||''});}
+function getBackup(){return JSON.stringify({theme:currentTheme,games:games,filters:filters,orders:orders,contact:document.getElementById('contactInput').value,address:document.getElementById('addressInput').value,banner:localStorage.getItem('deal_banner')||'',logo:localStorage.getItem('deal_logo')||''});}
 function exportBackup(){navigator.clipboard.writeText(getBackup()).then(()=>alert('✅ BACKUP COPY Ho Gaya!')).catch(()=>{prompt('Copy Kar Lo:',getBackup());});}
-function importBackup(){const txt=prompt('Backup Paste Karo:');if(!txt)return;try{const d=JSON.parse(txt);if(d.theme)currentTheme=d.theme;if(d.games)games=d.games;if(d.filters)filters=d.filters;if(d.banner)localStorage.setItem('deal_banner',d.banner);if(d.logo)localStorage.setItem('deal_logo',d.logo);if(d.contact)localStorage.setItem('deal_contact',d.contact);if(d.address)localStorage.setItem('deal_address',d.address);localStorage.setItem('deal_theme',currentTheme);localStorage.setItem('deal_games',JSON.stringify(games));localStorage.setItem('deal_filters',JSON.stringify(filters));applyTheme(currentTheme);loadAll();renderAll();alert('✅ Backup Wapas Aa Gaya!');}catch(e){alert('❌ Galat Backup');}}
-function saveAll(){localStorage.setItem('deal_theme',currentTheme);localStorage.setItem('deal_contact',document.getElementById('contactInput').value);localStorage.setItem('deal_address',document.getElementById('addressInput').value);localStorage.setItem('deal_payCard',document.getElementById('payCard').checked?'1':'0');localStorage.setItem('deal_payApple',document.getElementById('payApple').checked?'1':'0');localStorage.setItem('deal_payUsdt',document.getElementById('payUsdt').checked?'1':'0');localStorage.setItem('deal_payBtc',document.getElementById('payBtc').checked?'1':'0');const f=document.getElementById('filterInput').value.split(',').map(s=>s.trim()).filter(Boolean);if(f.length){filters=f;localStorage.setItem('deal_filters',JSON.stringify(filters));}collectGames();localStorage.setItem('deal_games',JSON.stringify(games));localStorage.setItem('deal_last_saved',new Date().toString());readFile(document.getElementById('bannerInput'),'deal_banner',()=>{readFile(document.getElementById('logoInput'),'deal_logo',()=>{loadAll();renderAll();document.getElementById('savedMsg').style.display='block';});});}
+function importBackup(){const txt=prompt('Backup Paste Karo:');if(!txt)return;try{const d=JSON.parse(txt);if(d.theme)currentTheme=d.theme;if(d.games)games=d.games;if(d.filters)filters=d.filters;if(d.orders)orders=d.orders;if(d.banner)localStorage.setItem('deal_banner',d.banner);if(d.logo)localStorage.setItem('deal_logo',d.logo);if(d.contact)localStorage.setItem('deal_contact',d.contact);if(d.address)localStorage.setItem('deal_address',d.address);localStorage.setItem('deal_theme',currentTheme);localStorage.setItem('deal_games',JSON.stringify(games));localStorage.setItem('deal_orders',JSON.stringify(orders));localStorage.setItem('deal_filters',JSON.stringify(filters));applyTheme(currentTheme);loadAll();renderAll();alert('✅ Backup Wapas Aa Gaya!');}catch(e){alert('❌ Galat Backup');}}
+function saveAll(){localStorage.setItem('deal_theme',currentTheme);localStorage.setItem('deal_contact',document.getElementById('contactInput').value);localStorage.setItem('deal_address',document.getElementById('addressInput').value);localStorage.setItem('deal_payCard',document.getElementById('payCard').checked?'1':'0');localStorage.setItem('deal_payApple',document.getElementById('payApple').checked?'1':'0');localStorage.setItem('deal_payUsdt',document.getElementById('payUsdt').checked?'1':'0');localStorage.setItem('deal_payBtc',document.getElementById('payBtc').checked?'1':'0');const f=document.getElementById('filterInput').value.split(',').map(s=>s.trim()).filter(Boolean);if(f.length){filters=f;localStorage.setItem('deal_filters',JSON.stringify(filters));}collectGames();localStorage.setItem('deal_games',JSON.stringify(games));localStorage.setItem('deal_orders',JSON.stringify(orders));readFile(document.getElementById('bannerInput'),'deal_banner',()=>{readFile(document.getElementById('logoInput'),'deal_logo',()=>{loadAll();renderAll();document.getElementById('savedMsg').style.display='block';});});}
 function loadAll(){const b=localStorage.getItem('deal_banner'),l=localStorage.getItem('deal_logo'),c=localStorage.getItem('deal_contact'),a=localStorage.getItem('deal_address');if(b)document.getElementById('banner').innerHTML='<img src="'+b+'">';if(l)document.getElementById('logo').innerHTML='<img src="'+l+'">';if(c){document.getElementById('showContact').textContent=c;document.getElementById('contactInput').value=c;}if(a){document.getElementById('showAddress').textContent=a;document.getElementById('addressInput').value=a;}const pc=localStorage.getItem('deal_payCard');if(pc!==null)document.getElementById('payCard').checked=(pc==='1');const pa=localStorage.getItem('deal_payApple');if(pa!==null)document.getElementById('payApple').checked=(pa==='1');const pu=localStorage.getItem('deal_payUsdt');if(pu!==null)document.getElementById('payUsdt').checked=(pu==='1');const pb=localStorage.getItem('deal_payBtc');if(pb!==null)document.getElementById('payBtc').checked=(pb==='1');updatePay();}
 applyTheme(currentTheme);loadAll();renderAll();
 </script>
